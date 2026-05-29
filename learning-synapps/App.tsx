@@ -407,7 +407,7 @@ const App: React.FC = () => {
       )}
 
       {/* Initial Screen */}
-      {appState === AppState.IDLE && (
+      {graphData.nodes.length === 0 && appState !== AppState.LOADING_GRAPH && (
         <div className="absolute inset-0 z-20 flex flex-col items-center justify-center p-4">
             <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-4 text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-600">SYNAPPS</h1>
             <p className="text-gray-400 mb-8 max-w-md text-center leading-relaxed">A recursive learning engine. Enter a topic to map its conceptual DNA.</p>
