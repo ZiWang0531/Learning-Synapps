@@ -2,7 +2,7 @@ import { GoogleGenAI, Type, Schema } from "@google/genai";
 import { GraphData, NodeExplanation, SynthesisResult, KnowledgeCard } from "../types";
 
 // Configuration
-const MODEL_NAME = "gemini-3-flash-preview";
+const MODEL_NAME = "gemini-3.1-flash-lite";
 
 const graphSchema: Schema = {
   type: Type.OBJECT,
