@@ -100,11 +100,17 @@ const App: React.FC = () => {
       }));
       setGraphData({ nodes: processedNodes, links: data.links });
       setAppState(AppState.EXPLORING);
-    } catch (err) {
-      console.error(err);
-      setErrorMsg("Failed to initialize. Please try a different topic.");
-      setAppState(AppState.ERROR);
-    }
+    } catch (err: unknown) {
+      console.error("Gemini initialization error:", err);
+      const message =
+        err instanceof Error
+          ? err.message
+          : typeof err === "string"
+            ? err
+            : JSON.stringify(err);
+     setErrorMsg(`Failed to initialize: ${message}`);
+     setAppState(AppState.ERROR);
+   }
   };
 
   const handleExpandNode = async (node: GraphNode) => {
